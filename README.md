@@ -1,5 +1,6 @@
 
-# BigDataCraftSales Introduction
+# BigDataCraftSales 
+##Introduction
 Given two data sets in HDFS as mentioned below.
 o Customer information &lt;customer_id,name,street,city,state,zip&gt;
 o Sales information &lt;timestamp,customer_id,sales_price&gt;
@@ -48,7 +49,8 @@ AL#2017#08#01#09#123457
 
 ### Data Ingestion
 
-The Ingestion is done in Spark reads data files from HDFS storage and parses data and joins dataset using Spark Core and stores resultsData in Cassandra. 
+The Ingestion is done using Spark Core. The dataset text files are read from HDFS storage, data is parsed using delimiter '#' and then two datasets are joined using Spark Core and resultsData is stored in Cassandra. 
+
 Then results for each state are retreived and combined using Spark and stored in output file in HDFS.
 
 ### Data Analyzer
