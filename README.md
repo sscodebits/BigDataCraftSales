@@ -1,22 +1,5 @@
-# BigDataCraftSales
-Joining Customer and Sales Dataset
 
-# Table of Contents
-
-1. [Introduction] (README.md#introduction)
-2. [Stackurious Features] (README.md#stackurious-features)
-3. [Data Pipeline] (README.md#data-pipeline)
-  * [Historical Data Analysis Details](README.md#historical-data-analysis-details)
-  * [Streaming Data Analysis Details](README.md#streaming-data-analysis-details)
-5. [AWS Cluster Details] (README.md#aws-cluster-details)
-6. [Visualization] (README.md#visualization)
-7. [Running Stackurious] (README.md#running-stackurious)
-
-
-
-
-
-# BigDataCraftSales Features
+# BigDataCraftSales Introduction
 Given two data sets in HDFS as mentioned below.
 o Customer information &lt;customer_id,name,street,city,state,zip&gt;
 o Sales information &lt;timestamp,customer_id,sales_price&gt;
@@ -143,9 +126,6 @@ It is built using the following technologies:
 - Apache Cassandra 3
 - Apache HDFS
 
-
-  
-  
 # Running BigDataCraftSales
 - Copy Customer and Sales input dataset in HDFS
 - Create craft.craftanalysis in Cassandra
