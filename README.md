@@ -1,30 +1,24 @@
 
 # BigDataCraftSales 
-##Introduction
-Given two data sets in HDFS as mentioned below.
-o Customer information &lt;customer_id,name,street,city,state,zip&gt;
-o Sales information &lt;timestamp,customer_id,sales_price&gt;
-
+## Introduction
+Given two data sets in HDFS as mentioned below -
+````
+Customer information <customer_id,name,street,city,state,zip>
+Sales information <timestamp,customer_id,sales_price>
+````
 Using Spark Core, BigDataCraftSales provides the total sale based on State and for (year, month, day and hour) granularities
 
-##  Data Analysis
-
- This dataset is analyzed to provide the following information:
-
-You have given two data sets in HDFS as mentioned below.
-o Customer information &lt;customer_id,name,street,city,state,zip&gt;
-o Sales information &lt;timestamp,customer_id,sales_price&gt;
 
 # Data Pipeline
 
 ![Data pipeline](architecture.JPG)
 
-## Historical Data Analysis Details
+## Data Analysis Details
 
 ### Data Input and Output Format
 
-Example Input: (Assume input as text format with &#39;#&#39; as delimiter)
-
+Example Input: (Assume input as text format with # as delimiter)
+````
 customers:
 123#AAA Inc#1 First Ave Mountain View CA#94040
 456#ABC Inc#2 First Ave Fayetteville AK#72703
@@ -35,8 +29,9 @@ Sales:
 1501578000#789#123457
 1470045600#456#123458
 1470049200#789#123459
-
+````
 Example Output:
+````
 state#year#month#day#hour#sales
 CA#2016#02#01#08#123456
 CA#2016#02#01##123456
@@ -44,7 +39,7 @@ CA#2016#02###123456
 CA#2016####123456
 CA#####123456
 AL#2017#08#01#09#123457
-
+````
 
 
 ### Data Ingestion
