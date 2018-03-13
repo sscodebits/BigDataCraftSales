@@ -17,7 +17,7 @@ o Sales information &lt;timestamp,customer_id,sales_price&gt;
 
 # Data Pipeline
 
-![Data pipeline](images/datapipeline.JPG)
+![Data pipeline](architecture.JPG)
 
 ## Historical Data Analysis Details
 
