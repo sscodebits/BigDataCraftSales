@@ -71,7 +71,7 @@ This defines the Strategy enum and uses that to create the appropriate instance 
 
 This interface defines the basic methods in the Analyzer.
 
-##### SalesAnalyzerSimple
+##### SalesAnalyzerBase
 
 This class implements a basic outline of the analyzer processing that can be overridden in other implementors based on their strategy.
 
@@ -80,6 +80,10 @@ It loads the Customer data as RDD and converts to CustomerRow RDD. Same is done 
 After this, the two RDDs are joined simply using the join method and mapped to AnalyzerRow class.
 
 AnalyzerRow represents the results of Analysis and is handy in creating the needed data. The joined RDD is used to create the multiple statistics by using reduceByKey on multiple Date related keys created as Tuples and results are stored in HDFS.
+
+##### SalesAnalyzerSimple
+
+This class re-implements the analysis on joined data to optimize on re-use of joinData in multiple reduceByKey. It only does it once for sumDay stats and then re-use that result for sumMonth and so on.
 
 ##### SalesAnalyzerCassandra
 
@@ -97,7 +101,7 @@ This will greatly improve performance in this scenario as it avoid the shuffly o
 
 This interface defines the basic method in the Result processor.
 
-##### SalesResultSimpler
+##### SalesResultSimple
 
 This class provides an empty no-op implmentation since it is very cumbersome to produce the required input from HDFS.
 
@@ -108,16 +112,17 @@ This class uses the Cassandra clustering implicit sorting to produce the results
 ### Cassandra Schema
 
 ```sql
+DROP TABLE craft.craftanalysis;
 CREATE TABLE craft.craftanalysis (
    state text,
-   epoch timestamp,
    year text,
    month text,
    day text,
    hour text,
    amount decimal,
-   PRIMARY KEY ((state), epoch)
-) WITH CLUSTERING ORDER BY (epoch DESC);
+   PRIMARY KEY ((state), year,month,day,hour)
+) WITH CLUSTERING ORDER BY (year DESC,month DESC,day DESC,hour DESC);
+
 ```
 
 # Technologies Details
