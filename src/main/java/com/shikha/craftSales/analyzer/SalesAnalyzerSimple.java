@@ -9,6 +9,7 @@ import scala.Tuple3;
 import scala.Tuple4;
 import scala.Tuple5;
 
+
 /**
  * Extends Base to change the calculation of different statistics for optimization.
  * JoinData is only used once now to calculate the Hourly stats. Then, this result is used for Day stats and so on.

@@ -14,6 +14,7 @@ import scala.Tuple3;
 import scala.Tuple4;
 import scala.Tuple5;
 
+
 /**
  * Performs analysis based on simple logic. It creates the CustomerRow and SalesRow RDDs by parsing the input line.
  * It joins the two RDDS using CustomerId as key

@@ -1,9 +1,5 @@
 package com.shikha.craftSales;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -15,10 +11,6 @@ import com.shikha.craftSales.analyzer.SalesAnalyzer;
 import com.shikha.craftSales.analyzer.SalesAnalyzerUtil;
 import com.shikha.craftSales.results.SalesResults;
 
-import scala.Tuple2;
-import scala.Tuple3;
-import scala.Tuple4;
-import scala.Tuple5;
 
 /**
  * This is main class to invoke the Spark job. It takes path of output directory and location of input datasets
