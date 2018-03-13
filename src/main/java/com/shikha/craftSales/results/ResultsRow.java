@@ -13,7 +13,6 @@ import java.sql.Timestamp;
  */
 public class ResultsRow implements Serializable {
 	private static final long serialVersionUID = 3L;
-	private long epoch;
 	private String state;
 	private String year="";
 	private String month="";
@@ -24,28 +23,17 @@ public class ResultsRow implements Serializable {
 	public ResultsRow() {}
 	
 	public ResultsRow(String state, String year, String month, String day, String hour, 
-			BigDecimal amount,
-			long epoch) {
+			BigDecimal amount) {
 		this.state = state;
 		this.year = year;
 		this.month=month;this.day=day;this.hour=hour;
 		this.amount = amount;
-		this.epoch = epoch;
 
 	}
 	
 	//Output String to store in HDFS
 	public String toString() {
 		return state + "#" + year + "#" + month + "#" + day + "#" + hour + "#" + amount.toString();
-	}
-
-
-	public long getEpoch() {
-		return epoch;
-	}
-
-	public void setEpoch(long epoch) {
-		this.epoch = epoch;
 	}
 
 	public String getState() {

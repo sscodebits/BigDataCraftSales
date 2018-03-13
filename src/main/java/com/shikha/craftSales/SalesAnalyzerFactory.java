@@ -4,6 +4,7 @@ import com.shikha.craftSales.analyzer.SalesAnalyzer;
 import com.shikha.craftSales.analyzer.SalesAnalyzerCassandra;
 import com.shikha.craftSales.analyzer.SalesAnalyzerCustSmall;
 import com.shikha.craftSales.analyzer.SalesAnalyzerSimple;
+import com.shikha.craftSales.analyzer.SalesAnalyzerBase;
 import com.shikha.craftSales.results.SalesResults;
 import com.shikha.craftSales.results.SalesResultsCassandra;
 import com.shikha.craftSales.results.SalesResultsSimple;

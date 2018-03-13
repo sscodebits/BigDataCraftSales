@@ -46,15 +46,6 @@ public class BigDataSalesAnalyzer {
 	public void process(String[] args) {
 		JavaSparkContext sc = init(args);
 		
-		/*
-		JavaRDD<String> textFile = logAnalyzer.loadFile(sc);
-		JavaPairRDD<String, Integer> counts = textFile
-		    .flatMap(s -> Arrays.asList(s.split(" ")).iterator())
-		    .mapToPair(word -> new Tuple2<>(word, 1))
-		    .reduceByKey((a, b) -> a + b);
-		counts.saveAsTextFile(args[1]);
-		*/
-		
 			String outputDir = args[1];
 
 			JavaRDD<String> customer = SalesAnalyzerUtil.loadFile(sc, args[2]);

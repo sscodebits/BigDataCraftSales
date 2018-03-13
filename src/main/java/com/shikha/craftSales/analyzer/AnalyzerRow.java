@@ -21,7 +21,6 @@ public class AnalyzerRow implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3L;
-	private long epoch;
 	private String state;
 	private String year="";
 	private String month="";
@@ -37,39 +36,33 @@ public class AnalyzerRow implements Serializable {
 		this.hour = s.getHour();
 		this.day = s.getDay();
 		this.amount = s.getAmount();
-		this.epoch = s.getEpoch() * 1000L;
 	}
 	public AnalyzerRow(String r, BigDecimal s) {
 		this.state = r;
 		this.amount = s;
-		this.epoch = 0;
 	}
 	public AnalyzerRow(String r, String yr, BigDecimal s) {
 		this.state = r;
 		this.year = yr;
 		this.amount = s;
-		this.epoch = getTimestamp(yr, "01", "01", "00");
 	}
 	public AnalyzerRow(String r, String yr, String m, BigDecimal s) {
 		this.state = r;
 		this.year = yr;
 		this.month=m;
 		this.amount = s;
-		this.epoch = getTimestamp(yr, m, "01", "00");
 	}
 	public AnalyzerRow(String r, String yr, String m, String d, BigDecimal s) {
 		this.state = r;
 		this.year = yr;
 		this.month=m;this.day=d;
 		this.amount = s;
-		this.epoch = getTimestamp(yr, m, d, "00");
 	}
 	public AnalyzerRow(String r, String yr, String m, String d, String h, BigDecimal s) {
 		this.state = r;
 		this.year = yr;
 		this.month=m;this.day=d;this.hour=h;
 		this.amount = s;
-		this.epoch = getTimestamp(yr, m, d, h);
 	}
 	
 	private static long getTimestamp(String year, String month, String day, String hour) {
@@ -134,13 +127,5 @@ public class AnalyzerRow implements Serializable {
 	//Output String to store in HDFS
 	public String toString() {
 		return state + "#" + year + "#" + month + "#" + day + "#" + hour + "#" + amount.toString();
-	}
-
-	public long getEpoch() {
-		return epoch;
-	}
-
-	public void setEpoch(long epoch) {
-		this.epoch = epoch;
 	}
 }
